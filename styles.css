@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Creepster', cursive, sans-serif; /* Spooky yet readable font */
+    background-color: #000; /* Dark background */
+    color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('https://www.transparenttextures.com/patterns/old-map.png'); /* Aged map background */
+    background-size: cover;
+    animation: flicker 0.1s infinite alternate; /* Flickering effect */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.alert-box {
+    background-color: #8B0000; /* Dark red background */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.9);
+    width: 500px;
+    max-width: 100%;
+    border: 5px solid #2F4F4F; /* Dark, rugged border to fit the pirate theme */
+    background-image: url('https://www.transparenttextures.com/patterns/rough-wood.png'); /* Rough wood texture */
+    background-size: cover;
+    position: relative; /* To position the skulls */
+    overflow: hidden;
+    z-index: 1; /* Ensure alert box stays below the skulls */
+    animation: subtle-shake 1.5s ease-in-out infinite alternate; /* Subtle shake animation for alert box */
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #ff6347; /* Pirate-like fiery red */
+    text-shadow: 0px 0px 30px rgba(255, 99, 71, 1), 0 0 15px rgba(255, 99, 71, 1); /* Fiery text glow */
+    animation: flicker 0.2s infinite alternate; /* Flicker animation for the title */
+}
+
+h2 {
+    font-size: 28px;
+    margin: 20px 0;
+    color: #ffd700;
+    text-shadow: 0px 0px 15px rgba(255, 215, 0, 1), 0 0 10px rgba(255, 215, 0, 1);
+    animation: flicker 0.3s infinite alternate;
+}
+
+h3 {
+    font-size: 20px;
+    margin: 20px 0;
+    color: #ffd700;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+strong {
+    color: #ff6347;
+    font-size: 22px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 15px 0;
+    padding-left: 0;
+}
+
+ul li {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #ffd700;
+}
+
+button.warning-btn {
+    background-color: #ff6347; /* Fiery button color */
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-shadow: 2px 2px 5px #000;
+    box-shadow: 0 0 10px #ff6347, 0 0 20px #ff6347;
+    animation: pulse 1s infinite alternate;
+}
+
+button.warning-btn:hover {
+    background-color: #ff4500;
+    box-shadow: 0 0 20px #ff6347, 0 0 40px #ff6347;
+}
+
+/* Skull on the left side */
+.alert-box::before {
+    content: "\1F480"; /* Skull and crossbones emoji */
+    font-size: 120px;
+    position: absolute;
+    top: 10%;
+    left: -60px; /* Position on the left */
+    transform: translateY(-50%);
+    color: #ffd700;
+    text-shadow: 2px 2px 5px #000;
+    z-index: 2; /* Ensures the skull is above the alert box */
+    animation: skull-move 3s infinite alternate; /* Skull move effect */
+}
+
+/* Skull on the right side */
+.alert-box::after {
+    content: "\1F480"; /* Skull and crossbones emoji */
+    font-size: 120px;
+    position: absolute;
+    top: 10%;
+    right: -60px; /* Position on the right */
+    transform: translateY(-50%);
+    color: #ffd700;
+    text-shadow: 2px 2px 5px #000;
+    z-index: 2; /* Ensures the skull is above the alert box */
+    animation: skull-move 3s infinite alternate; /* Skull move effect */
+}
+
+/* Flicker animation for background and text */
+@keyframes flicker {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.87;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Subtle Shake animation for alert box (less intense) */
+@keyframes subtle-shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Skull moving effect */
+@keyframes skull-move {
+    0% {
+        transform: translateY(-50%) scale(1);
+    }
+    25% {
+        transform: translateY(-60%) scale(1.2);
+    }
+    50% {
+        transform: translateY(-50%) scale(1);
+    }
+    75% {
+        transform: translateY(-40%) scale(1.2);
+    }
+    100% {
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+/* Pulse animation for the warning button */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Import Creepster font */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
